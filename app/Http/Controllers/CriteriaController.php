@@ -6,7 +6,7 @@ use App\Exports\ExportCriteria;
 use App\Imports\CriteriaImport;
 use Illuminate\Http\Request;
 use App\Models\criteria;
-use App\Models\Alternative;
+use App\Models\alternative;
 use App\Models\GradeAlternativeCriteria;
 use Maatwebsite\Excel\Facades\Excel;
 
