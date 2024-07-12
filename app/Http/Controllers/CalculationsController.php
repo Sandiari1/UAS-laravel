@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Alternative;
-use App\Models\Criteria;
+use App\Models\alternative;
+use App\Models\criteria;
 use App\Models\GradeAlternativeCriteria as Grade;
 use Illuminate\Support\Collection;
 
 class CalculationsController extends Controller
 {
     public function index(){
-        $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
-        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();
+        $criteria = criteria::where('user_id', '=', auth()->user()->id)->get();
+        $alternatives = alternative::where('user_id', '=', auth()->user()->id)->get();
         if(count($criteria) == 0 || count($alternatives) == 0){
             return view('modal.calculationModal.noCalculationModal');
         }
