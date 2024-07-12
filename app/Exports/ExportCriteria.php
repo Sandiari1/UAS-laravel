@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Criteria;
+use App\Models\criteria;
 use Maatwebsite\Excel\Concerns\FromView;
 use illuminate\Contracts\View\View;
 class ExportCriteria implements FromView
@@ -12,7 +12,7 @@ class ExportCriteria implements FromView
     */
     public function view():View
     {
-        $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
+        $criteria = criteria::where('user_id', '=', auth()->user()->id)->get();
 
         return view('criteria-table', ['criteria' => $criteria]);
     }
