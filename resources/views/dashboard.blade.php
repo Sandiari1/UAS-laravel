@@ -16,7 +16,7 @@
 </div>
 <div class="content-box p-3 mt-3 rounded rounded-2 bg-white">
   <div class="content rounded rounded-2 border border-1 p-3">
-    <h3 class="mb-3">Pemilihan Karyawan Terbaik</h3>
+    <h3 class="mb-3">SPK Topsis Pemilihan Karyawan Terbaik</h3>
     <p>
       Metode TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution) adalah salah satu metode dalam
       sistem pendukung keputusan yang digunakan untuk menentukan alternatif terbaik dari sejumlah alternatif dengan
