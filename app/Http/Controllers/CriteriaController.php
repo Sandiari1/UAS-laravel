@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\ExportCriteria;
 use App\Imports\CriteriaImport;
 use Illuminate\Http\Request;
-use App\Models\Criteria;
+use App\Models\criteria;
 use App\Models\Alternative;
 use App\Models\GradeAlternativeCriteria;
 use Maatwebsite\Excel\Facades\Excel;
