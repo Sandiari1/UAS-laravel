@@ -14,7 +14,7 @@ class CriteriaController extends Controller
 {
     public function index()
     {
-        $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
+        $criteria = criteria::where('user_id', '=', auth()->user()->id)->get();
         return view('criteria', ['criteria' => $criteria]);
     }
 
