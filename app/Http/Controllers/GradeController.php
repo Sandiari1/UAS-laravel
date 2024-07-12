@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\GradeAlternativeCriteria as Grade;
-use App\Models\Alternative;
+use App\Models\alternative;
 use Illuminate\Support\Facades\DB;
 
 class GradeController extends Controller
 {
     public function index(){
-        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();
+        $alternatives = alternative::where('user_id', '=', auth()->user()->id)->get();
         return view('grade', compact('alternatives'));
     }
 
@@ -27,7 +27,7 @@ class GradeController extends Controller
     public function update(Request $request){
         $data = $request->except(['_token', '_method', 'alternative_id']);
         $alternativeId = $request->only('alternative_id')['alternative_id'];
-        $alternative = Alternative::find($alternativeId);
+        $alternative = alternative::find($alternativeId);
         DB::beginTransaction();
         foreach ($data as $key => $value) {
             $affected = DB::table('grade_alternatives_criteria')
