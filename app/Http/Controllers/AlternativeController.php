@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Alternative;
-use App\Models\Criteria;
+use App\Models\alternative;
+use App\Models\criteria;
 use App\Models\GradeAlternativeCriteria;
 
 class AlternativeController extends Controller
 {
     public function index(){
-        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();        
+        $alternatives = alternative::where('user_id', '=', auth()->user()->id)->get();        
         return view('alternative', compact('alternatives'));
     }
 
@@ -21,9 +21,9 @@ class AlternativeController extends Controller
         ]);
         $newAlternative['user_id'] = auth()->user()->id;
 
-        $newAlternative = Alternative::create($newAlternative);
+        $newAlternative = alternative::create($newAlternative);
 
-        $allCriteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
+        $allCriteria = criteria::where('user_id', '=', auth()->user()->id)->get();
         $gradeData = [];
         foreach ($allCriteria as $criterion) {
             array_push($gradeData, [
@@ -40,13 +40,13 @@ class AlternativeController extends Controller
     }
 
     public function delete(Request $request){
-        $alternative = Alternative::find($request->id);
+        $alternative = alternative::find($request->id);
         $alternative->delete();
         return redirect()->route('alternatives');
     }
 
     public function update(Request $request){
-        $oldAlternative = Alternative::find($request->id);
+        $oldAlternative = alternative::find($request->id);
         $updatedAlternative = $request->except('_token');
         $oldAlternative->update($updatedAlternative);
 
