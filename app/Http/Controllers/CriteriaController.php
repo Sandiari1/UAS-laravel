@@ -28,9 +28,9 @@ class CriteriaController extends Controller
         ]);
         $newCriteria['user_id'] = auth()->user()->id;
 
-        $newCriteria = Criteria::create($newCriteria);
+        $newCriteria = criteria::create($newCriteria);
 
-        $allAlternative = Alternative::where('user_id', '=', auth()->user()->id)->get();
+        $allAlternative = alternative::where('user_id', '=', auth()->user()->id)->get();
         $gradeData = [];
         foreach ($allAlternative as $alternative) {
             array_push($gradeData, [
@@ -48,14 +48,14 @@ class CriteriaController extends Controller
 
     public function delete(Request $request)
     {
-        $criteria = Criteria::find($request->id);
+        $criteria = criteria::find($request->id);
         $criteria->delete();
         return redirect()->route('criteria');
     }
 
     public function update(Request $request)
     {
-        $oldCriteria = Criteria::find($request->id);
+        $oldCriteria = criteria::find($request->id);
         $updatedCriteria = $request->except('_token');
         $oldCriteria->update($updatedCriteria);
 
