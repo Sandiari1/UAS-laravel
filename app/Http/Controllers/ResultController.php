@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\CalculationController;
-use App\Models\Alternative;
+use App\Models\alternative;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Arr;
-use App\Models\Criteria;
+use App\Models\criteria;
 
 class ResultController extends Controller
 {
     public function index(){
         $calculatioObj = new CalculationsController;
-        $alternatives = Alternative::where('user_id', '=', auth()->user()->id)->get();
-        $criteria = Criteria::where('user_id', '=', auth()->user()->id)->get();
+        $alternatives = alternative::where('user_id', '=', auth()->user()->id)->get();
+        $criteria = criteria::where('user_id', '=', auth()->user()->id)->get();
         if(count($criteria) == 0 || count($alternatives) == 0){
             return view('modal.calculationModal.noCalculationModal');
         }
